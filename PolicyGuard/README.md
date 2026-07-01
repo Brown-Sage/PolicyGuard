@@ -1,16 +1,57 @@
-# React + Vite
+# PolicyGuard Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This directory contains the React/Vite frontend for PolicyGuard. For the full project overview, backend setup, API routes, and architecture notes, see the root [`../README.md`](../README.md).
 
-Currently, two official plugins are available:
+## What Is Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- Vite 7
+- Tailwind CSS
+- ESLint
+- Browser `localStorage` for JWT token, username, and theme preference
 
-## React Compiler
+## Main Screens
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `AuthPage.jsx`: login and account creation.
+- `Dashboard.jsx`: policy PDF upload, employee CSV upload, scan trigger, scan summary, and scan history.
+- `ViolationsPage.jsx`: global violation listing with refresh.
+- `PolicyDocuments.jsx`: MVP placeholder for future policy repository management.
+- `Sidebar.jsx`: navigation, dark mode toggle, and logout.
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+Create `.env` only if the backend API is not running at the default URL:
+
+```env
+VITE_API_URL=http://localhost:8000/api
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Run linting:
+
+```bash
+npm run lint
+```
+
+## Sample Files
+
+You can use these local files when running a demo scan:
+
+- `Global_Policy_V2.pdf`
+- `Global_Policy_V3.pdf`
+- `Policy_Compliance_Dataset_Updated.csv`
